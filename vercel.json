@@ -22,7 +22,10 @@
         },
         {
             "src":"/(.*)",
-            "dest":"poll/wsgi.py"
+            "dest":"registration/wsgi.py"
         }
     ]
 }
+
+
+
