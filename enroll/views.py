@@ -49,12 +49,16 @@ def updates(request, upid):
         updateddata = UserForm(request.POST, instance=userdata)
         if updateddata.is_valid():
             updateddata.save()
-            return HttpResponseRedirect("/")
+            status = True
+            # return HttpResponseRedirect("/")
+            context = {"fm": updateddata, "status": status}
+            return render(request, "enroll/update.html", context)
 
     else:
+        status = False
         userdata = User.objects.get(Userid=upid)
         myform = UserForm(instance=userdata)
 
-    context = {"fm": myform}
+    context = {"fm": myform, "status": status}
 
     return render(request, "enroll/update.html", context)
