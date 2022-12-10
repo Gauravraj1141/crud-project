@@ -1,5 +1,12 @@
-echo "BUILD START"
-
+# build_files.sh
 pip install -r requirements.txt
-python3 manage.py collectstatic
-echo "BUILD END"
+
+
+
+echo "make migration...."
+python3 manage.py makemigrations --noinput
+python3 manage.py migrate --noinput
+
+
+echo "collect static ...  "
+python3 manage.py collectstatic --noinput --clear
