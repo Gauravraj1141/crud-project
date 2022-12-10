@@ -64,7 +64,7 @@ Register
                             <a href="{% url 'updates' data.Userid %}" class="btn btn-warning">update</a>
                             <form action="{% url 'delete' data.Userid %}" method="POST" class="d-inline">
                                 {% csrf_token %}
-                                <input type="submit" class="btn btn-danger" value="Delete">
+                                <input type="submit" class="btn btn-danger" value="Delete" id="delete">
                             </form>
                         </td>
 
@@ -81,3 +81,19 @@ Register
     </div>
 </div>
 {% endblock content %}
+
+
+{% block js %}
+<script>
+    // Get the button element
+    var button = document.getElementById('delete');
+
+    // Add an event listener to the button
+    button.addEventListener('click', function () {
+        alert('Deleted Successfully!');
+    });
+</script>
+
+
+
+{% endblock js %}

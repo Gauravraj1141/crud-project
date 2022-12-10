@@ -1,5 +1,4 @@
-from django.shortcuts import render
-from django.http import HttpResponseRedirect
+from django.shortcuts import render, redirect
 from .forms import UserForm
 from .models import User
 # Create your views here.
@@ -40,7 +39,7 @@ def delete(request, user):
     if request.method == "POST":
         userdata = User.objects.get(Userid=user)
         userdata.delete()
-        return HttpResponseRedirect("/")
+        return redirect("/")
 
 
 def updates(request, upid):
